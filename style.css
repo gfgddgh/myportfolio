@@ -12,7 +12,7 @@ body {
     overflow-x: hidden;
 }
 
-html{
+html {
     scroll-behavior: smooth;
 }
 
@@ -58,6 +58,10 @@ html{
     color: rgb(0, 128, 6);
 }
 
+.res {
+    display: none;
+}
+
 .wrapper {
     position: fixed;
     width: 100%;
@@ -72,44 +76,50 @@ html{
 #section1,
 #section2,
 #section3,
-#section4{
+#section4 {
     position: relative;
     z-index: 0;
     width: 100%;
     height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-#section1{
-    display: flex; 
+#section1 {
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-.text{
-   color: #FFF;
-   font-size: 7rem;
-   font-weight: 700;
-font-family: 'Edu TAS Beginner', cursive;
+.text {
+    color: #FFF;
+    font-size: 7rem;
+    font-size: clamp(1.5rem, 8vw, 7rem);
+    font-weight: 700;
+    font-family: 'Edu TAS Beginner', cursive;
 
 }
 
 #section2 {
     color: #FFF;
-    display: flex; 
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.myself{
+.myself {
     font-size: 3rem;
     max-width: 50%;
     font-family: 'Edu TAS Beginner', cursive;
     text-align: center;
+    font-size: 7rem;
+    font-size: clamp(1.5rem, 5vw, 3rem);
 }
 
 
-.section3-wrap{
+.section3-wrap {
     width: 100%;
     height: 100%;
     display: flex;
@@ -117,28 +127,188 @@ font-family: 'Edu TAS Beginner', cursive;
     justify-content: center;
 }
 
-.container{
+.container {
     width: 90%;
     height: 90%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-gap: 30px;
+    gap: 30px;
 }
 
-.skill{
+.skill {
     width: 30%;
     height: 50%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     flex-direction: column;
-    border:2px solid green;
-border-radius: 20px;
+    border: 2px solid green;
+    border-radius: 20px;
+    flex-grow: 1;
 }
 
-.skill i{
-    font-size: 10rem;
+.skill i {
+    font-size: 9rem;
+}
+
+.skill span {
+    font-size: 4rem;
+}
+
+.section4-wrapper {
+    width: min(100vw, 1440px);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.containers {
+    width: 50%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    color: #FFF;
+}
+
+.containers div h1 {
+    font-size: 6rem;
+    font-family: system-ui;
+    font-weight: 700;
+}
+
+.containers div h2 {
+    font-size: 2rem;
+}
+
+.containers form {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input {
+    padding: 10px;
+    border-radius: 10px;
+    outline: transparent;
+    border: 1px solid #3c0153;
+}
+
+#send {
+    background: #3c0153;
+    border: none;
+    color: #FFF;
+    cursor: pointer;
+    transition: .3s;
+}
+
+#send:hover {
+    background: hsl(283, 98%, 30%);
+}
+
+@media screen and (max-width:768px) {
+    .nav-bar {
+        position: fixed;
+        top: -100%;
+        left: 0;
+        transform: translateY(-50%);
+        height: 100vh;
+        width: 100vw;
+        background: rgba(58, 4, 94, 0.199);
+        backdrop-filter: blur(20px);
+        transition: 0.5s;
+    }
+
+    .nav-bar.active {
+        top: 0;
+        transform: translateY(0);
+    }
+
+    .list-container {
+        height: 50%;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .res {
+        display: block;
+        color: #FFF;
+        font-size: 2rem;
+    }
     
+    .res:active {
+        color: #3c0153;
+    }
+
+    .close {
+        position: absolute;
+        top: 15px;
+        right: 50%;
+        transform: translateX(50%);
+    }
+
+    .section4-wrapper {
+        flex-direction: column;
+    }
+
+    .containers {
+        width: 100%;
+        align-items: center;
+    }
+
+    .containers div {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width:576px) {
+    .wrapper {
+        height: 120vh;
+    }
+
+    .container {
+        width: 95%;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: 10px;
+    }
+    
+    .skill {
+        width: 100%;
+        height: 50%;
+        justify-content: space-between;
+        flex-direction: row;
+        border-radius: 15px;
+        flex-grow: 1;
+    }
+    
+    .skill i {
+        margin-left: 20px;
+        font-size: 5rem;
+    }
+    
+    .skill span {
+        margin-right: 20px;
+        font-size: 3rem;
+    }
+    
+
+    .containers div h1 {
+        font-size: 3rem;
+    }
+
+    .containers div h2 {
+        font-size: 1rem;
+    }
+
+    .containers form {
+        width: max(70%, 250px);
+    }
 }
